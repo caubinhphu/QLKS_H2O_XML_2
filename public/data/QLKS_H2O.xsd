@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:simpleType name="sdt">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="0\d{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="mamau">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="#[0-9a-f]{3,}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="QLKS_H2O">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="LOAIPHONG" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_LOAIPHONG">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]{2,3}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="TEN_LOAIPHONG" type="xs:string"/>
+                            <xs:element name="KICHTHUOC" type="xs:unsignedShort"/>
+                            <xs:element name="MAMAU" type="mamau"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="VATTU" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_VATTU">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]{3}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="TEN_VATTU" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DICHVU" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_DICHVU">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]{3}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="TEN_DICHVU" type="xs:string"/>
+                            <xs:element name="GIA_DICHVU" type="xs:positiveInteger"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="VATTU_LOAIPHONG" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_VATTU" type="xs:string"/>
+                            <xs:element name="MA_LOAIPHONG" type="xs:string"/>
+                            <xs:element name="SOLUONG" type="xs:unsignedByte"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TRANGTHAI_PHONG" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_TRANGTHAI">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z]{2}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="TEN_TRANGTHAI" type="xs:string"/>
+                            <xs:element name="MAMAU" type="mamau"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PHONG" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MAPHONG">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{3}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MA_LOAIPHONG" type="xs:string"/>
+                            <xs:element name="GIAPHONG" type="xs:positiveInteger"/>
+                            <xs:element name="MA_TRANGTHAI" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="KHACH" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_KHACH">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{9}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="HOTEN_KHACH" type="xs:string"/>
+                            <xs:element name="GIOITINH">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Nam"/>
+                                        <xs:enumeration value="Nữ"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="NGAYSINH" type="xs:date"/>
+                            <xs:element name="CMND_PASSPORT" type="xs:string"/>
+                            <xs:element name="DIENTHOAI" type="sdt"/>
+                            <xs:element name="QUOCTICH" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="NHANVIEN" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MA_NHANVIEN">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="NV\d{2,}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="PASSWORD" type="xs:string"/>
+                            <xs:element name="HOTEN_NHANVIEN" type="xs:string"/>
+                            <xs:element name="GIOITINH">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Nam"/>
+                                        <xs:enumeration value="Nữ"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="NGAYSINH" type="xs:date"/>
+
+                            <xs:element name="CMND">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{9}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="DIENTHOAI" type="sdt"/>
+                            <xs:element name="DIACHI" type="xs:string"/>
+                            <xs:element name="EMAIL">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\w{2,}@\w{2,}\.\w{2,}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="BOPHAN">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Lễ tân"/>
+                                        <xs:enumeration value="Kế toán"/>
+                                        <xs:enumeration value="Quản lý"/>
+                                        <xs:enumeration value="Vật tư"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="PHIEU_THUEPHONG" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="SO_PHIEU">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="\d{9}"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="MAKHACH" type="xs:string"/>
+                            <xs:element name="MA_NHANVIEN" type="xs:string"/>
+                            <xs:element name="NGAYLAP_PHIEU" type="xs:date"/>
+                            <xs:element name="NGAYDEN" type="xs:date"/>
+                            <xs:element name="NGAYDI" type="xs:date"/>
+                        </xs:sequence>
+                        <xs:attribute name="DATRAPHONG" type="xs:boolean" default="0"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="CHITIET_THUEPHONG" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="SO_PHIEU" type="xs:string"/>
+                            <xs:element name="MAPHONG" type="xs:string"/>
+                            <xs:element name="SONGUOI" type="xs:unsignedByte"/>
+                            <xs:element name="GIAPHONG" type="xs:positiveInteger"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="CT_THUE_DICHVU" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="SO_PHIEU" type="xs:string"/>
+                            <xs:element name="MA_DICHVU" type="xs:string"/>
+                            <xs:element name="SOLUONG" type="xs:unsignedByte"/>
+                            <xs:element name="GIA_DICHVU" type="xs:positiveInteger"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:key name="LPK">
+            <xs:selector xpath="LOAIPHONG"/>
+            <xs:field xpath="MA_LOAIPHONG"/>
+        </xs:key>
+        <xs:key name="VTK">
+            <xs:selector xpath="VATTU"/>
+            <xs:field xpath="MA_VATTU"/>
+        </xs:key>
+        <xs:key name="VTLPK">
+            <xs:selector xpath="VATTU_LOAIPHONG"/>
+            <xs:field xpath="MA_VATTU"/>
+            <xs:field xpath="MA_LOAIPHONG"/>
+        </xs:key>
+        <xs:keyref name="VTLPKR1" refer="VTK">
+            <xs:selector xpath="VATTU_LOAIPHONG"/>
+            <xs:field xpath="MA_VATTU"/>
+        </xs:keyref>
+        <xs:keyref name="VTLPKR2" refer="LPK">
+            <xs:selector xpath="VATTU_LOAIPHONG"/>
+            <xs:field xpath="MA_LOAIPHONG"/>
+        </xs:keyref>
+        <xs:key name="TTK">
+            <xs:selector xpath="TRANGTHAI_PHONG"/>
+            <xs:field xpath="MA_TRANGTHAI"/>
+        </xs:key>
+        <xs:key name="PK">
+            <xs:selector xpath="PHONG"/>
+            <xs:field xpath="MAPHONG"/>
+        </xs:key>
+        <xs:keyref name="PKR" refer="LPK">
+            <xs:selector xpath="PHONG"/>
+            <xs:field xpath="MA_LOAIPHONG"/>
+        </xs:keyref>
+        <xs:keyref name="PKR2" refer="TTK">
+            <xs:selector xpath="PHONG"/>
+            <xs:field xpath="MA_TRANGTHAI"/>
+        </xs:keyref>
+        <xs:key name="KHK">
+            <xs:selector xpath="KHACH"/>
+            <xs:field xpath="MA_KHACH"/>
+        </xs:key>
+        <xs:key name="NVK">
+            <xs:selector xpath="NHANVIEN"/>
+            <xs:field xpath="MA_NHANVIEN"/>
+        </xs:key>
+        <xs:key name="DVK">
+            <xs:selector xpath="DICHVU"/>
+            <xs:field xpath="MA_DICHVU"/>
+        </xs:key>
+        <xs:key name="TPK">
+            <xs:selector xpath="PHIEU_THUEPHONG"/>
+            <xs:field xpath="SO_PHIEU"/>
+        </xs:key>
+        <xs:keyref name="TPKR1" refer="KHK">
+            <xs:selector xpath="PHIEU_THUEPHONG"/>
+            <xs:field xpath="MAKHACH"/>
+        </xs:keyref>
+        <xs:keyref name="TPKR2" refer="NVK">
+            <xs:selector xpath="PHIEU_THUEPHONG"/>
+            <xs:field xpath="MA_NHANVIEN"/>
+        </xs:keyref>
+        <xs:key name="CTTPK">
+            <xs:selector xpath="CHITIET_THUEPHONG"/>
+            <xs:field xpath="SO_PHIEU"/>
+            <xs:field xpath="MAPHONG"/>
+        </xs:key>
+        <xs:keyref name="CTTPKR1" refer="TPK">
+            <xs:selector xpath="CHITIET_THUEPHONG"/>
+            <xs:field xpath="SO_PHIEU"/>
+        </xs:keyref>
+        <xs:keyref name="CTTPKR2" refer="PK">
+            <xs:selector xpath="CHITIET_THUEPHONG"/>
+            <xs:field xpath="MAPHONG"/>
+        </xs:keyref>
+        <xs:key name="CTDVK">
+            <xs:selector xpath="CT_THUE_DICHVU"/>
+            <xs:field xpath="SO_PHIEU"/>
+            <xs:field xpath="MA_DICHVU"/>
+        </xs:key>
+        <xs:keyref name="CTDVKR1" refer="TPK">
+            <xs:selector xpath="CT_THUE_DICHVU"/>
+            <xs:field xpath="SO_PHIEU"/>
+        </xs:keyref>
+        <xs:keyref name="CTDVKR2" refer="DVK">
+            <xs:selector xpath="CT_THUE_DICHVU"/>
+            <xs:field xpath="MA_DICHVU"/>
+        </xs:keyref>
+    </xs:element>
+</xs:schema>
