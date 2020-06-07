@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -15,10 +14,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello');
-});
 
 app.put('/vattu/vattu', (req, res) => {
   const { loaiPhong, vatTu, soLuong } = req.body;
