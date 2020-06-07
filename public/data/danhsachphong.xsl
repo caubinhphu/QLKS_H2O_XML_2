@@ -30,55 +30,53 @@
                     </xsl:for-each>
                 </div>
             </div>
+
             <hr/>
+
             <div class="d-flex m-4 justify-content-around flex-wrap">
                 <div>
                     <div class="text-center">
                         <b style="font-size: 20px">Loại phòng</b>
                     </div>
-                    <div class="my-2">
-                        <xsl:for-each select="QLKS_H2O/LOAIPHONG">
-                            <div class="d-flex align-items-center my-2">
-                                <div class="mr-2">
-                                    <div class="chuthich-loaiphong">
-                                        <xsl:attribute name="style">
-                                            background-color: <xsl:value-of select="MAMAU"/>
-                                        </xsl:attribute>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <p class="my-auto">
-                                        <xsl:value-of select="TEN_LOAIPHONG"/>
-                                    </p>
-                                </div>
-                            </div>
-                        </xsl:for-each>
-                    </div>
+                    <xsl:for-each select="QLKS_H2O/LOAIPHONG">
+                      <div class="my-2">
+                          <div class="d-flex align-items-center my-2">
+                              <div class="mr-2">
+                                  <div class="chuthich-loaiphong">
+                                      <xsl:attribute name="style">
+                                          background-color: <xsl:value-of select="MAMAU"/>
+                                      </xsl:attribute>
+                                      .
+                                  </div>
+                              </div>
+                              <div class="d-flex align-items-center">
+                                  <p class="my-auto"><xsl:value-of select="TEN_LOAIPHONG"/></p>
+                              </div>
+                          </div>
+                      </div>
+                    </xsl:for-each>
                 </div>
-            </div>
-            <div class="d-flex m-4 justify-content-around flex-wrap">
                 <div>
                     <div class="text-center">
-                        <b style="font-size: 20px">Loại phòng</b>
+                        <b style="font-size: 20px">Trạng thái phòng</b>
                     </div>
-                    <div class="my-2">
-                        <xsl:for-each select="QLKS_H2O/LOAIPHONG">
-                            <div class="d-flex align-items-center my-2">
-                                <div class="mr-2">
-                                    <div class="chuthich-loaiphong">
-                                        <xsl:attribute name="style">
-                                            background-color: <xsl:value-of select="MAMAU"/>
-                                        </xsl:attribute>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <p class="my-auto">
-                                        <xsl:value-of select="TEN_LOAIPHONG"/>
-                                    </p>
-                                </div>
-                            </div>
-                        </xsl:for-each>
-                    </div>
+                    <xsl:for-each select="QLKS_H2O/TRANGTHAI_PHONG">
+                      <div class="my-2">
+                          <div class="d-flex align-items-center my-2">
+                              <div class="mr-2">
+                                  <div class="chuthich-trangthai">
+                                      <xsl:attribute name="style">
+                                          background-color: <xsl:value-of select="MAMAU"/>
+                                      </xsl:attribute>
+                                      .
+                                  </div>
+                              </div>
+                              <div class="d-flex align-items-center">
+                                  <p class="my-auto"><xsl:value-of select="TEN_TRANGTHAI"/></p>
+                              </div>
+                          </div>
+                      </div>
+                    </xsl:for-each>
                 </div>
             </div>
         </div>
