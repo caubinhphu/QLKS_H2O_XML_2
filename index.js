@@ -6,6 +6,8 @@ const xml2js = require('xml2js');
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 // set public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,4 +35,4 @@ app.get('/test', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('Server is opened'));
+app.listen(PORT, () => console.log('Server is opened'));

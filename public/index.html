@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/danhsachPhong.css" />
+    <link rel="stylesheet" href="/styles/fontawesome-free/css/all.min.css" />
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/popper.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/notify.min.js"></script>
+</head>
+
+<body>
+  <!-- Header container -->
+    <div style="position: relative"><img class="img-fluid"
+      src="/images/banner2.jpg" alt="Banner" />
+        <p class="badge badge-warning badge-pill"
+          style="z-index: 10; position: absolute; top: 20px; left: 20px; font-size: 20px">
+          H2O Hotel
+        </p>
+    </div>
+
+    <!-- Main container -->
+    <div id="main">
+      <div class="m-4 row">
+        <div class="col-sm-5">
+            <div class="p-4" style="background-color: #e8f4ff">
+                <div class="text-center"><b class="text-danger">ĐĂNG NHẬP</b></div>
+                <form name="loginForm">
+                    <div class="form-group"><label for="username">Mã nhân viên</label><input class="form-control" id="username" type="text" placeholder="Mã nhân viên" name="username" required="required" value="" /></div>
+                    <div class="form-group"><label for="password">Mật khẩu</label><input class="form-control" id="password" type="password" placeholder="Mật khẩu" name="password" required="required" /></div>
+                    <div class="text-right"><button class="btn btn-primary" type="submit">ĐĂNG NHẬP</button></div>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="p-4" style="background-color: #e8f4ff">
+                <div class="text-center"><b class="text-danger">THÔNG BÁO MỚI NHẤT</b></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer container -->
+    <footer class="footer text-center bg-info py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-3 mb-lg-0">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <p>H2O@gmail</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-3 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Contact with us</h4>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <i class="fab fa-fw fa-facebook-f"></i>
+                      </a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <i class="fab fa-fw fa-twitter"></i>
+                      </a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                      <i class="fab fa-fw fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                      <i class="fab fa-fw fa-dribbble"></i>
+                    </a>
+                    <h4 class="text-uppercase mb-4"></h4>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h5 class="mt-md-4">About us</h5>
+                    <p>H2O Team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <section class="copyright py-4 text-center text-black text-lg bg-secondary">
+        <div class="container"><small>Copyright &copy; H2O website</small></div>
+    </section>
+
+    <script src="/scripts/cookie.js"></script>
+    <script src="/scripts/auth/index.js"></script>
+</body>
+
+</html>
