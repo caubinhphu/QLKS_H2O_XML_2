@@ -18,11 +18,11 @@ xhr.onload = function () {
       'SO_PHIEU'
     ).innerHTML;
 
-    document.getElementById('ngayden').innerHTML = phieuThue.querySelector(
+    document.getElementById('ngayden').value = phieuThue.querySelector(
       'NGAYDEN'
     ).innerHTML;
 
-    document.getElementById('ngaydi').innerHTML = phieuThue.querySelector(
+    document.getElementById('ngaydi').value = phieuThue.querySelector(
       'NGAYDI'
     ).innerHTML;
 
@@ -50,27 +50,27 @@ xhr.onload = function () {
     );
 
     if (khach) {
-      document.getElementById('tenkhach').innerHTML = khach.querySelector(
+      document.getElementById('tenkhach').value = khach.querySelector(
         'HOTEN_KHACH'
       ).innerHTML;
 
-      document.getElementById('cmnd').innerHTML = khach.querySelector(
+      document.getElementById('cmnd').value = khach.querySelector(
         'CMND_PASSPORT'
       ).innerHTML;
 
-      document.getElementById('gioitinh').innerHTML = khach.querySelector(
+      document.getElementById('gioitinh').value = khach.querySelector(
         'GIOITINH'
       ).innerHTML;
 
-      document.getElementById('ngaysinh').innerHTML = khach.querySelector(
+      document.getElementById('ngaysinh').value = khach.querySelector(
         'NGAYSINH'
       ).innerHTML;
 
-      document.getElementById('dienthoai').innerHTML = khach.querySelector(
+      document.getElementById('dienthoai').value = khach.querySelector(
         'DIENTHOAI'
       ).innerHTML;
 
-      document.getElementById('quoctich').innerHTML = khach.querySelector(
+      document.getElementById('quoctich').value = khach.querySelector(
         'QUOCTICH'
       ).innerHTML;
     }
@@ -116,100 +116,75 @@ xhr.onload = function () {
 
     document.getElementById('bodydichvu').innerHTML = dichVuText;
 
-    //   const maLoaiPhong = phong.querySelector('MA_LOAIPHONG').innerHTML;
-    //   const loaiPhong = [...xml.getElementsByTagName('LOAIPHONG')].find(
-    //     (lp) => lp.querySelector('MA_LOAIPHONG').innerHTML === maLoaiPhong
-    //   );
-
-    //   if (loaiPhong) {
-    //     document.getElementById('loaiphong').innerHTML = loaiPhong.querySelector(
-    //       'TEN_LOAIPHONG'
-    //     ).innerHTML;
-
-    //     const maTrangThai = phong.querySelector('MA_TRANGTHAI').innerHTML;
-    //     const trangThai = [...xml.getElementsByTagName('TRANGTHAI_PHONG')].find(
-    //       (tt) => tt.querySelector('MA_TRANGTHAI').innerHTML === maTrangThai
-    //     );
-
-    //     if (trangThai) {
-    //       document.getElementById(
-    //         'trangthai'
-    //       ).innerHTML = trangThai.querySelector('TEN_TRANGTHAI').innerHTML;
-    //     }
-
-    //     const vatTus = [...xml.getElementsByTagName('VATTU_LOAIPHONG')].filter(
-    //       (item) => item.querySelector('MA_LOAIPHONG').innerHTML === maLoaiPhong
-    //     );
-
-    //     vatTus.forEach((item, index) => {
-    //       const vatTu = [...xml.getElementsByTagName('VATTU')].find(
-    //         (vt) =>
-    //           vt.querySelector('MA_VATTU').innerHTML ===
-    //           item.querySelector('MA_VATTU').innerHTML
-    //       );
-    //       if (vatTu) {
-    //         const tr = document.createElement('tr');
-    //         tr.innerHTML = `<td>${index + 1}</td>
-    //                       <td>${vatTu.querySelector('TEN_VATTU').innerHTML}</td>
-    //                       <td>${item.querySelector('SOLUONG').innerHTML}</td>`;
-
-    //         document.getElementById('vattuBody').appendChild(tr);
-    //       }
-    //     });
-    //   }
-
-    //   const ctThuePhongs = [...xml.getElementsByTagName('CHITIET_THUEPHONG')];
-
-    //   const phieuThuePhong = [...xml.getElementsByTagName('PHIEU_THUEPHONG')]
-    //     .filter((phieu) => phieu.getAttribute('DATRAPHONG') === '0')
-    //     .map((phieu) => {
-    //       phieu.chiTiet = ctThuePhongs.filter(
-    //         (ct) =>
-    //           ct.querySelector('SO_PHIEU').innerHTML ===
-    //             phieu.querySelector('SO_PHIEU').innerHTML &&
-    //           ct.querySelector('MAPHONG').innerHTML === idPhong
-    //       );
-    //       return phieu;
-    //     })
-    //     .find((phieu) => phieu.chiTiet.length > 0);
-
-    //   if (phieuThuePhong) {
-    //     console.log(phieuThuePhong);
-    //     document.getElementById('phieuthue').innerHTML = `<hr>
-    //               <div class="text-center w-50 mx-auto"><h5>PHIẾU THUÊ PHÒNG</h5></div>
-    //               <div class="d-flex w-50 mx-auto flex-wrap">
-    //                 <div class="col-6">SỐ PHIẾU: <a href="/phieuthue?id=${
-    //                   phieuThuePhong.querySelector('SO_PHIEU').innerHTML
-    //                 }">${
-    //       phieuThuePhong.querySelector('SO_PHIEU').innerHTML
-    //     }</a></div>
-    //                 <div class="col-6">MÃ KHÁCH: ${
-    //                   phieuThuePhong.querySelector('MAKHACH').innerHTML
-    //                 }</div>
-    //                 <div class="col-6">MÃ NHÂN VIÊN: ${
-    //                   phieuThuePhong.querySelector('MA_NHANVIEN').innerHTML
-    //                 }</div>
-    //                 <div class="col-6">NGÀY LẬP PHIẾU: ${
-    //                   phieuThuePhong.querySelector('NGAYLAP_PHIEU').innerHTML
-    //                 }</div>
-    //                 <div class="col-6">NGÀY ĐẾN: ${
-    //                   phieuThuePhong.querySelector('NGAYDEN').innerHTML
-    //                 }</div>
-    //                 <div class="col-6">NGÀY ĐI: ${
-    //                   phieuThuePhong.querySelector('NGAYDI').innerHTML
-    //                 }</div>
-    //               </div>
-    //               `;
-    //   }
-
-    //   document.getElementById('giaphong').innerHTML = phong.querySelector(
-    //     'GIAPHONG'
-    //   ).innerHTML;
-    //   const giaphong = phong.querySelector('GIAPHONG').innerHTML;
-    //   const gp = [...xml.getElementsByTagName('PHONG')].find(
-    //     (giap) => giap.querySelector('GIAPHONG').innerHTML === giaphong
-    //   );
+    if (phieuThue.getAttribute('DATRAPHONG') === '0') {
+      const control = document.getElementById('control');
+      control.innerHTML = `<button class="btn btn-success" id="btnupdate">Cập nhật</button>
+      <a class="btn btn-danger" href="/letan/traphong?idphong=${idPhieu}">Trả phòng</a>`;
+    }
   }
+
+  const phongs = [...xml.getElementsByTagName('PHONG')].map(
+    (p) => p.querySelector('MAPHONG').innerHTML
+  );
+
+  document
+    .getElementById('btnthemphong')
+    .addEventListener('click', function () {
+      const select = document.createElement('select');
+      select.name = 'phong';
+      select.className = 'form-control form-control-sm';
+      select.innerHTML = phongs.map((p) => `<option>${p}</option>`).join('');
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.value = 1;
+      input.className = 'form-control form-control-sm';
+      const button = document.createElement('button');
+      button.className = 'btn btn-sm btn-danger';
+      button.innerHTML = 'X';
+      button.addEventListener('click', function () {
+        this.parentElement.remove();
+      });
+      const div = document.createElement('div');
+      div.className = 'd-flex';
+      div.appendChild(select);
+      div.appendChild(input);
+      div.appendChild(button);
+      document.getElementById('themphong').appendChild(div);
+    });
+
+  const dichVus = [...xml.getElementsByTagName('DICHVU')].map((dv) => {
+    return {
+      id: dv.querySelector('MA_DICHVU').innerHTML,
+      name: dv.querySelector('TEN_DICHVU').innerHTML,
+    };
+  });
+
+  document
+    .getElementById('btnthemdichvu')
+    .addEventListener('click', function () {
+      const select = document.createElement('select');
+      select.name = 'dichvu';
+      select.className = 'form-control form-control-sm';
+      select.innerHTML = dichVus
+        .map((dv) => `<option value="${dv.id}">${dv.name}</option>`)
+        .join('');
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.value = 1;
+      input.className = 'form-control form-control-sm';
+      const button = document.createElement('button');
+      button.className = 'btn btn-sm btn-danger';
+      button.innerHTML = 'X';
+      button.addEventListener('click', function () {
+        this.parentElement.remove();
+      });
+      const div = document.createElement('div');
+      div.className = 'd-flex';
+      div.appendChild(select);
+      div.appendChild(input);
+      div.appendChild(button);
+      document.getElementById('themdichvu').appendChild(div);
+    });
 };
 
 xhr.send(null);

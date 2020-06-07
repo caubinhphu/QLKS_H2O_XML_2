@@ -43,18 +43,13 @@
                                         Xem
                                     </a>
                                     <xsl:if test="@DATRAPHONG='0'">
-                                        <a class="mx-1 btn btn-success btn-sm">
-                                            <xsl:attribute name="href">/letan/themdichvu.html?idphieu=<xsl:value-of select="SO_PHIEU"/></xsl:attribute>
-                                            Thêm dịch vụ
-                                        </a>
-                                        <a class="btn btn-danger btn-sm">
+                                        <a class="btn btn-danger btn-sm ml-1">
                                             <xsl:attribute name="href">/letan/traphong.html?idphieu=<xsl:value-of select="SO_PHIEU"/></xsl:attribute>
                                             Trả phòng
                                         </a>
                                     </xsl:if>
                                 </td>
                             </tr>
-                        
                     </xsl:for-each>
                 </tbody>
             </table>
