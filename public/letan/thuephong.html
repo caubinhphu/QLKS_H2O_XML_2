@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+        <link rel="stylesheet" href="/styles/fontawesome-free/css/all.min.css" />
+        <script src="/scripts/jquery.js"></script>
+        <script src="/scripts/popper.min.js"></script>
+        <script src="/scripts/bootstrap.min.js"></script>
+        <script src="/scripts/notify.min.js"></script>
+      </head>    
+<body>
+  <!-- Header container -->
+  <div style="position: relative;">
+    <img class="img-fluid" src="/images/banner2.jpg" alt="Banner" />
+    <p class="badge badge-warning badge-pill" style="
+          z-index: 10;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          font-size: 20px;
+        ">
+      H2O Hotel
+    </p>
+  </div>
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="/letan/index.html">LỄ TÂN</a><button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+      <ul class="navbar-nav w-100">
+        <li class="nav-item"><a class="nav-link" href="/letan/index.html">Phòng</a></li>
+        <li class="nav-item"><a class="nav-link" href="/letan/phieuthuephong.html">Thuê phòng</a></li>
+        <li class="ml-auto">
+          <button class="btn btn-secondary" id="logout">Đăng xuất</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+      <a href="/letan/" class="btn btn-outline-warning m-4 "><i class="fas fa-arrow-circle-left"></i> Quay về </a>
+      <h3 class="text-center bg-info text-white">THÊM KHÁCH THUÊ PHÒNG</h3>
+        <form action="#">
+          <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="makhach">Mã khách thuê</label>
+              <input type="text" class="form-control" placeholder="Nhập mã tại đây...!" id="makhach">
+            </div>
+            <div class="form-group">
+              <label for="name">Họ tên khách:</label>
+              <input type="text" class="form-control" placeholder="Nhập họ tên...!" id="hoten">
+            </div>
+            <div class="form-group">
+              <label for="CMND">CMND/PassPort</label>
+              <input type="text" class="form-control" placeholder="Nhập CMND/PassPort...!" id="cmnd">
+            </div>
+            <div class="form-group">
+              <label for="dt">Điện thoại:</label>
+              <input type="number" class="form-control" placeholder="Nhập số điện thoại...!" id="sdt">
+            </div>
+            <div class="form-group">
+              <label for="qt">Quốc tịch :</label>
+              <input type="text" class="form-control" placeholder="Nhập quốc tịch...!" id="quoctich">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="tlp">Tên loại phòng:</label>
+              <input type="text" class="form-control" placeholder="Nhập tên loại phòng...!" id="tenloaiphong">
+            </div>
+            <div class="form-group">
+              <label for="slp">Số lượng phòng :</label>
+              <input type="number" class="form-control" placeholder="Nhập số lượng phòng...!" id="soluong">
+            </div>
+          </div>
+        </div>
+        <div class="d-block text-center m-2">
+            <button class="btn btn-primary" onclick="addCustomer()" id="btn-them">Thêm</button>
+        </div>
+          </form>
+
+              <div style="display:none;" id="hien">
+
+                <h3 class="text-center bg-warning text-white">CHI TIẾT THUÊ PHÒNG</h3>
+                <button class="btn btn-outline-success float-right mb-1">THANH TOÁN</button>
+                <table id="table" class=" table table-bordered">
+                  <tr>
+                    <th>Mã khách thuê</th>
+                    <th>Họ tên khách</th>
+                    <th>CMND/PassPort</th>
+                    <th>Điện thoại</th>
+                    <th>Quốc tịch </th>
+
+                    <th>Tên loại phòng</th>
+                    <th>Số lượng phòng</th>
+                  </tr>
+                </table>
+            </div>
+    </div>
+
+    <!-- Footer container -->
+  <footer class="footer text-center bg-info py-4">
+    <div class="container">
+      <div class="row">
+        <!-- Footer Location-->
+        <div class="col-lg-4 mb-3 mb-lg-0">
+          <ul class="list-unstyled mb-0">
+            <li>
+              <i class="fas fa-envelope mt-4 fa-2x"></i>
+              <p>H2O@gmail</p>
+            </li>
+          </ul>
+        </div>
+        <!-- Footer Social Icons-->
+        <div class="col-lg-4 mb-3 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Contact with us</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+          <h4 class="text-uppercase mb-4"></h4>
+        </div>
+        <!-- Footer About Text-->
+        <div class="col-lg-4">
+          <h5 class="mt-md-4">About us</h5>
+          <p>H2O Team</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <section class="copyright py-4 text-center text-black text-lg bg-secondary">
+    <div class="container"><small>Copyright &copy; H2O website</small></div>
+  </section>
+    <script>
+            $("#btn-them").click(hienForm)
+
+            function hienForm(){
+              $("#hien").css("display","block");
+            }
+      function addCustomer()
+      {
+        var table = document.getElementById("table"),
+            newRow = table.insertRow(table.length),
+            cell1 = newRow.insertCell(0),
+            cell2 = newRow.insertCell(1),
+            cell3 = newRow.insertCell(2),
+            cell4 = newRow.insertCell(3),
+            cell5 = newRow.insertCell(4),
+            cell6 = newRow.insertCell(5),
+            cell7 = newRow.insertCell(6),
+            makhach= document.getElementById("makhach").value;
+            hoten = document.getElementById("hoten").value;
+            cmnd = document.getElementById("cmnd").value;
+            dienthoai= document.getElementById("sdt").value;
+            quoctich = document.getElementById("quoctich").value;
+            tenloaiphong = document.getElementById("tenloaiphong").value;
+            soluong = document.getElementById("soluong").value;
+            cell1.innerHTML = makhach;
+            cell2.innerHTML = hoten;
+            cell3.innerHTML = cmnd;
+            cell4.innerHTML = dienthoai;
+            cell5.innerHTML = quoctich
+            cell6.innerHTML = tenloaiphong;
+            cell7.innerHTML = soluong;
+
+      }
+    </script>
+</body>
+</html>

@@ -14,7 +14,7 @@ const xsltProcessor = new XSLTProcessor();
 
 // Load the xsl file using synchronous (third param is set to false) XMLHttpRequest
 const xhr2 = new XMLHttpRequest();
-xhr2.open('get', '/data/danhsachphong.xsl', false);
+xhr2.open('get', '/data/phieuthuephong.xsl', false);
 
 xhr2.onload = function () {
   xsltProcessor.importStylesheet(this.responseXML);
@@ -24,12 +24,6 @@ xhr2.onload = function () {
   const text = doc.firstElementChild.outerHTML;
 
   document.getElementById('main').innerHTML = text;
-
-  document.querySelectorAll('.phong').forEach((phong) => {
-    phong.addEventListener('click', function () {
-      location.href = `/letan/phong.html?id=${this.dataset.idphong}`;
-    });
-  });
 };
 
 xhr2.send(null);

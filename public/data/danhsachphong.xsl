@@ -13,7 +13,8 @@
             <div class="d-flex mx-md-4" id="dsphong">
                 <div class="d-flex justify-content-around flex-wrap my-4">
                     <xsl:for-each select="QLKS_H2O/PHONG">
-                        <div class="phong" data-toggle="modal">
+                        <div class="phong">
+                          <xsl:attribute name="data-idphong"><xsl:value-of select="MAPHONG"/></xsl:attribute>
                             <div class="d-flex justify-content-center align-items-center phong-loaiphong">
                                 <xsl:attribute name="style">
                                     background-color: <xsl:value-of select="key('LoaiPhongKey', MA_LOAIPHONG)/MAMAU"/>
