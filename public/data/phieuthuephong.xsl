@@ -38,10 +38,19 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 <td>
-                                    <button class="btn btn-info btn-sm">Xem</button>
+                                    <a class="btn btn-info btn-sm">
+                                        <xsl:attribute name="href">/letan/phieuthue.html?idphieu=<xsl:value-of select="SO_PHIEU"/></xsl:attribute>
+                                        Xem
+                                    </a>
                                     <xsl:if test="@DATRAPHONG='0'">
-                                        <button class="mx-1 btn btn-success btn-sm">Thêm dịch vụ</button>
-                                        <button class="btn btn-danger btn-sm">Trả phòng</button>
+                                        <a class="mx-1 btn btn-success btn-sm">
+                                            <xsl:attribute name="href">/letan/themdichvu.html?idphieu=<xsl:value-of select="SO_PHIEU"/></xsl:attribute>
+                                            Thêm dịch vụ
+                                        </a>
+                                        <a class="btn btn-danger btn-sm">
+                                            <xsl:attribute name="href">/letan/traphong.html?idphieu=<xsl:value-of select="SO_PHIEU"/></xsl:attribute>
+                                            Trả phòng
+                                        </a>
                                     </xsl:if>
                                 </td>
                             </tr>

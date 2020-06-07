@@ -80,7 +80,7 @@ xhr.onload = function () {
       document.getElementById('phieuthue').innerHTML = `<hr>
                 <div class="text-center w-50 mx-auto"><h5>PHIẾU THUÊ PHÒNG</h5></div>
                 <div class="d-flex w-50 mx-auto flex-wrap">
-                  <div class="col-6">SỐ PHIẾU: <a href="/thuephong?id=${
+                  <div class="col-6">SỐ PHIẾU: <a href="/letan/phieuthue.html?id=${
                     phieuThuePhong.querySelector('SO_PHIEU').innerHTML
                   }">${
         phieuThuePhong.querySelector('SO_PHIEU').innerHTML
