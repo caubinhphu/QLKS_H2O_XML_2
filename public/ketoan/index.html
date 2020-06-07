@@ -37,7 +37,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav w-100">
         <li class="nav-item">
           <a class="nav-link" href="/ketoan">Hóa đơn</a>
         </li>
@@ -49,6 +49,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/ketoan/doanhthunam.html">Doanh thu năm</a>
+        </li>
+        <li class="ml-auto">
+          <button class="btn btn-secondary" id="logout">Đăng xuất</button>
         </li>
       </ul>
     </div>
@@ -116,6 +119,8 @@
   </section>
 
   <script src="/scripts/cookie.js"></script>
+  <script src="/scripts/checkAuth.js"></script>
+  <script src="/scripts/logout.js"></script>
   <script src="/scripts/ketoan/index.js"></script>
 </body>
 

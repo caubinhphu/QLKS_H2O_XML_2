@@ -30,9 +30,12 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav w-100">
         <li class="nav-item"><a class="nav-link" href="/vattu/index.html">Vật tư</a></li>
         <li class="nav-item"><a class="nav-link" href="/vattu/trangthaiphong.html">Trạng thái phòng</a></li>
+        <li class="ml-auto">
+          <button class="btn btn-secondary" id="logout">Đăng xuất</button>
+        </li>
       </ul>
     </div>
   </nav>
@@ -83,6 +86,8 @@
 
   <script src="/scripts/axios.min.js"></script>
   <script src="/scripts/cookie.js"></script>
+  <script src="/scripts/checkAuth.js"></script>
+  <script src="/scripts/logout.js"></script>
   <script src="/scripts/vattu/index.js"></script>
 </body>
 

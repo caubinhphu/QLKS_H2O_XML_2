@@ -24,7 +24,20 @@ document.loginForm.addEventListener('submit', function (e) {
     });
     if (user) {
       setCookie('id', username, 1);
-      location.href = '/letan/index.html';
+      switch (user.querySelector('BOPHAN').innerHTML) {
+        case 'Lễ tân':
+          location.href = '/letan/index.html';
+          break;
+        case 'Kế toán':
+          location.href = '/ketoan/index.html';
+          break;
+        case 'Vật tư':
+          location.href = '/vattu/index.html';
+          break;
+        case 'Quản lý':
+          location.href = '/quanly/index.html';
+          break;
+      }
     } else {
       $.notify('Đăng nhập thất bại', 'error');
     }
