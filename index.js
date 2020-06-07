@@ -22,13 +22,41 @@ app.put('/vattu/vattu', (req, res) => {
     if (err) res.sendStatus(400);
     parseString(data, function (error, result) {
       if (error) res.sendStatus(500);
-      // here we log the results of our xml string conversion
 
+      // here we log the results of our xml string conversion
       const vatTuLoaiPhong = result.QLKS_H2O.VATTU_LOAIPHONG.find((item) => {
         return item.MA_VATTU[0] === vatTu && item.MA_LOAIPHONG[0] === loaiPhong;
       });
       if (vatTuLoaiPhong) {
         vatTuLoaiPhong.SOLUONG[0] = soLuong;
+      }
+
+      const builder = new xml2js.Builder();
+      const xml = builder.buildObject(result);
+
+      fs.writeFile('./public/data/QLKS_H2O.xml', xml, function (err, data) {
+        if (err) res.sendStatus(500);
+      });
+
+      res.json('OK');
+    });
+  });
+});
+
+app.put('/vattu/trangthai', (req, res) => {
+  const { phong, trangThai } = req.body;
+
+  fs.readFile('./public/data/QLKS_H2O.xml', 'utf-8', (err, data) => {
+    if (err) res.sendStatus(400);
+    parseString(data, function (error, result) {
+      if (error) res.sendStatus(500);
+
+      // here we log the results of our xml string conversion
+      const phongNeed = result.QLKS_H2O.PHONG.find(
+        (item) => item.MAPHONG[0] === phong
+      );
+      if (phongNeed) {
+        phongNeed.MA_TRANGTHAI[0] = trangThai;
       }
 
       const builder = new xml2js.Builder();

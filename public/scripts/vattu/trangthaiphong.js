@@ -22,10 +22,31 @@ xhr2.onload = function () {
   const doc = xsltProcessor.transformToDocument(xml);
 
   const text = doc.firstElementChild.outerHTML;
-  
+
   document.getElementById('main').innerHTML = text;
+
+  document
+    .getElementById('main')
+    .querySelectorAll('button')
+    .forEach((btn) => {
+      btn.addEventListener('click', function () {
+        // send to server
+        axios
+          .put('/vattu/trangthai', {
+            phong: this.parentElement.parentElement.dataset.idphong,
+            trangThai: this.parentElement.previousElementSibling
+              .firstElementChild.value,
+          })
+          .then((res) => {
+            if (res.data === 'OK') {
+              location.reload();
+            }
+          })
+          .catch((err) => {
+            console.error(err.message);
+          });
+      });
+    });
 };
 
 xhr2.send(null);
-
-

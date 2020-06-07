@@ -11,14 +11,15 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>STT</th>
-                        <th>Số phòng</th>
+                        <th>Phòng</th>
                         <th>Tình trạng phòng</th>
-                        <th>Thao tac</th>
+                        <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <xsl:for-each select="QLKS_H2O/PHONG">                    
                             <tr>
+                              <xsl:attribute name="data-idphong"><xsl:value-of select="MAPHONG"/></xsl:attribute>
                                 <td>
                                     <xsl:value-of select="position()"/>
                                 </td>
