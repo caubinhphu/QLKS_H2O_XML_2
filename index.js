@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const bodyParser = require('body-parser');
 const parseString = require('xml2js').parseString;
 const xml2js = require('xml2js');
 
@@ -11,26 +12,33 @@ const PORT = process.env.PORT || 3000;
 // set public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/test', (req, res) => {
-  fs.readFile('./public/data/test.xml', 'utf-8', (err, data) => {
-    if (err) throw err;
-    parseString(data, function (error, result) {
-      if (error) console.log(error);
-      // here we log the results of our xml string conversion
-      console.log(result);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-      result.QLKS_H2O.LOAIPHONG[0].MA_LOAIPHONG[0] = 'xxxxxxxxxxxxxxxxx';
+app.put('/vattu/vattu', (req, res) => {
+  const { loaiPhong, vatTu, soLuong } = req.body;
+
+  fs.readFile('./public/data/QLKS_H2O.xml', 'utf-8', (err, data) => {
+    if (err) res.sendStatus(400);
+    parseString(data, function (error, result) {
+      if (error) res.sendStatus(500);
+      // here we log the results of our xml string conversion
+
+      const vatTuLoaiPhong = result.QLKS_H2O.VATTU_LOAIPHONG.find((item) => {
+        return item.MA_VATTU[0] === vatTu && item.MA_LOAIPHONG[0] === loaiPhong;
+      });
+      if (vatTuLoaiPhong) {
+        vatTuLoaiPhong.SOLUONG[0] = soLuong;
+      }
 
       const builder = new xml2js.Builder();
       const xml = builder.buildObject(result);
 
-      fs.writeFile('./public/data/test.xml', xml, function (err, data) {
-        if (err) console.log(err);
-
-        console.log('successfully written our update xml to file');
+      fs.writeFile('./public/data/QLKS_H2O.xml', xml, function (err, data) {
+        if (err) res.sendStatus(500);
       });
 
-      res.json(result);
+      res.json('OK');
     });
   });
 });

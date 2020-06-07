@@ -59,24 +59,36 @@ document.getElementById('xemBtn').addEventListener('click', function () {
       );
     });
 
-    let tenVatTu = '';
-
-    if (vatTu) {
-      tenVatTu = vatTu.getElementsByTagName('TEN_VATTU')[0].innerHTML;
-    }
-
     const tr = document.createElement('tr');
-
     tr.innerHTML = `<td>${index + 1}</td>
-      <td>${tenVatTu}</td>
+      <td>${vatTu.getElementsByTagName('TEN_VATTU')[0].innerHTML}</td>
       <td>
         <input class="form-control form-control-sm w-25 mx-auto text-center" type="number" value="${
           item.getElementsByTagName('SOLUONG')[0].innerHTML
-        }" class="text-center">
+        }" min="0">
       </td>
       <td>
         <button class="btn btn-success btn-sm">Lưu</button>
       </td>`;
+
+    tr.querySelector('button').addEventListener('click', function () {
+      // send to server
+      axios
+        .put('/vattu/vattu', {
+          loaiPhong: document.getElementById('selectLoaiPhong').value,
+          vatTu: vatTu.getElementsByTagName('MA_VATTU')[0].innerHTML,
+          soLuong: this.parentElement.previousElementSibling.firstElementChild
+            .value,
+        })
+        .then((res) => {
+          if (res.data === 'OK') {
+            location.reload();
+          }
+        })
+        .catch((err) => {
+          console.error(err.message);
+        });
+    });
 
     document.getElementById('tabalBody').appendChild(tr);
     document.getElementById('table').style.display = 'table';
