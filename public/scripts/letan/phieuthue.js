@@ -18,7 +18,7 @@ xhr.onload = function () {
       'SO_PHIEU'
     ).innerHTML;
 
-    document.getElementById('ngayden').value = phieuThue.querySelector(
+    document.getElementById('ngayden').innerHTML = phieuThue.querySelector(
       'NGAYDEN'
     ).innerHTML;
 
@@ -58,9 +58,12 @@ xhr.onload = function () {
         'CMND_PASSPORT'
       ).innerHTML;
 
-      document.getElementById('gioitinh').value = khach.querySelector(
-        'GIOITINH'
-      ).innerHTML;
+      const gt = khach.querySelector('GIOITINH').innerHTML;
+      if (gt === 'Nam') {
+        document.getElementById('gioitinh').selectedIndex = 0;
+      } else {
+        document.getElementById('gioitinh').selectedIndex = 1;
+      }
 
       document.getElementById('ngaysinh').value = khach.querySelector(
         'NGAYSINH'
@@ -119,7 +122,44 @@ xhr.onload = function () {
     if (phieuThue.getAttribute('DATRAPHONG') === '0') {
       const control = document.getElementById('control');
       control.innerHTML = `<button class="btn btn-success" id="btnupdate">Cập nhật</button>
-      <a class="btn btn-danger" href="/letan/traphong?idphong=${idPhieu}">Trả phòng</a>`;
+      <a class="btn btn-danger" href="/letan/traphong.html?idphieu=${idPhieu}">Trả phòng</a>`;
+
+      control.querySelector('button').addEventListener('click', function () {
+        const data = {};
+        data.customerInfo = {
+          name: document.getElementById('tenkhach').value,
+          code: document.getElementById('cmnd').value,
+          gender: document.getElementById('gioitinh').value,
+          phone: document.getElementById('dienthoai').value,
+          country: document.getElementById('quoctich').value,
+          dateOfBirth: document.getElementById('ngaysinh').value,
+        };
+
+        data.serviceInfo = [];
+
+        const soLuongs = [...document.getElementsByName('soluong')];
+        [...document.getElementsByName('dichvu')].forEach((dichVu, index) => {
+          data.serviceInfo.push({
+            id: dichVu.value,
+            num: soLuongs[index].value,
+          });
+        });
+
+        data.voucherInfo = {
+          dataLeave: document.getElementById('ngaydi').value,
+          staff: getCookie('id'),
+          id: idPhieu,
+        };
+
+        axios
+          .put('/letan/thuephong', data)
+          .then((res) => {
+            if (res.data === 'OK') {
+              location.reload();
+            }
+          })
+          .catch((err) => location.reload());
+      });
 
       const dichVus = [...xml.getElementsByTagName('DICHVU')].map((dv) => {
         return {
@@ -142,6 +182,7 @@ xhr.onload = function () {
           .join('');
         const input = document.createElement('input');
         input.type = 'number';
+        input.name = 'soluong';
         input.value = 1;
         input.className = 'form-control form-control-sm';
         const button = document.createElement('button');

@@ -104,7 +104,9 @@ xhr.onload = function () {
     document.getElementById('dichVuBody').appendChild(trEndDichVu);
 
     document.getElementById('tien').innerHTML = tienPhong + tienDichVu;
-    document.getElementById('tong').innerHTML = (tienPhong + tienDichVu) * 1.1;
+    document.getElementById('tong').innerHTML = Math.round(
+      (tienPhong + tienDichVu) * 1.1
+    );
 
     document.getElementById('btnOK').addEventListener('click', function () {
       axios

@@ -155,6 +155,65 @@ app.post('/letan/thuephong', (req, res) => {
   });
 });
 
+app.put('/letan/thuephong', (req, res) => {
+  const { customerInfo, serviceInfo, voucherInfo } = req.body;
+
+  fs.readFile('./public/data/QLKS_H2O.xml', 'utf-8', (err, data) => {
+    if (err) res.sendStatus(400);
+    parseString(data, function (error, result) {
+      if (error) res.sendStatus(500);
+
+      const phieuThue = result.QLKS_H2O.PHIEU_THUEPHONG.find(
+        (phieu) => phieu.SO_PHIEU[0] === voucherInfo.id
+      );
+
+      if (phieuThue) {
+        // update customer info
+        const customer = result.QLKS_H2O.KHACH.find(
+          (khach) => khach.MA_KHACH[0] === phieuThue.MAKHACH[0]
+        );
+        if (customer) {
+          customer.HOTEN_KHACH[0] = customerInfo.name;
+          customer.GIOITINH[0] = customerInfo.gender;
+          customer.NGAYSINH[0] = customerInfo.dateOfBirth;
+          customer.CMND_PASSPORT[0] = customerInfo.code;
+          customer.DIENTHOAI[0] = customerInfo.phone;
+          customer.QUOCTICH[0] = customerInfo.country;
+        }
+
+        // update voucher info
+        phieuThue.MA_NHANVIEN[0] = voucherInfo.staff;
+        phieuThue.NGAYDI[0] = voucherInfo.dataLeave;
+
+        // save serviceInfo
+        serviceInfo.forEach((service) => {
+          const sv = result.QLKS_H2O.DICHVU.find(
+            (dv) => dv.MA_DICHVU[0] === service.id
+          );
+
+          if (sv) {
+            result.QLKS_H2O.CT_THUE_DICHVU.push({
+              SO_PHIEU: [voucherInfo.id],
+              MA_DICHVU: [service.id],
+              SOLUONG: [service.num],
+              GIA_DICHVU: [sv.GIA_DICHVU[0]],
+            });
+          }
+        });
+      }
+
+      const builder = new xml2js.Builder();
+      const xml = builder.buildObject(result);
+
+      fs.writeFile('./public/data/QLKS_H2O.xml', xml, function (err, data) {
+        if (err) res.sendStatus(500);
+      });
+
+      res.json('OK');
+    });
+  });
+});
+
 app.post('/letan/traphong', (req, res) => {
   const { id, ngayTra } = req.body;
 

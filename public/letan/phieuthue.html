@@ -62,9 +62,7 @@
       </tr>
       <tr>
         <th>Ngày đến</th>
-        <td>
-          <input type="text" class="form-control form-control-sm" id="ngayden">
-        </td>
+        <td id="ngayden"></td>
         <th>Tên khách</th>
         <td>
           <input type="text" class="form-control form-control-sm" id="tenkhach">
@@ -77,7 +75,7 @@
       <tr>
         <th>Ngày đi</th>
         <td>
-          <input type="text" class="form-control form-control-sm" id="ngaydi">
+          <input type="date" class="form-control form-control-sm" id="ngaydi">
         </td>
         <th>CMND/PASSPORT</th>
         <td>
@@ -91,7 +89,10 @@
         <td id="ngaylap"></td>
         <th>Giới tính</th>
         <td>
-          <input type="text" class="form-control form-control-sm" id="gioitinh">
+          <select id="gioitinh" class="form-control form-control-sm" required>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
         </td>
         <th></th>
         <td></td>
@@ -101,7 +102,7 @@
         <td id="nhanvien"></td>
         <th>Ngày sinh</th>
         <td>
-          <input type="text" class="form-control form-control-sm" id="ngaysinh">
+          <input type="date" class="form-control form-control-sm" id="ngaysinh">
         </td>
         <th></th>
         <td></td>
