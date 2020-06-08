@@ -24,6 +24,32 @@ xhr2.onload = function () {
   const text = doc.firstElementChild.outerHTML;
 
   document.getElementById('main').innerHTML = text;
+
+  document
+    .getElementById('dsdichvu')
+    .querySelectorAll('button')
+    .forEach((btn) => {
+      btn.addEventListener('click', function () {
+        // send to server
+        axios
+          .put('/quanly/dichvu', {
+            service: this.parentElement.previousElementSibling
+              .previousElementSibling.previousElementSibling.innerHTML,
+            price: this.parentElement.previousElementSibling.firstElementChild
+              .value,
+            name: this.parentElement.previousElementSibling
+              .previousElementSibling.firstElementChild.value,
+          })
+          .then((res) => {
+            if (res.data === 'OK') {
+              location.reload();
+            }
+          })
+          .catch((err) => {
+            console.error(err.message);
+          });
+      });
+    });
 };
 
 xhr2.send(null);
