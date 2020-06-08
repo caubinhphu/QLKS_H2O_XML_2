@@ -6,7 +6,7 @@
     <xsl:key name="KhachKey" match="KHACH" use="MA_KHACH"/>
     <xsl:template match="/">
         <div>
-            <a href="/thuephong" class="btn btn-success">Thêm phiếu thuê</a>
+            <a href="/letan/thuephong.html" class="btn btn-success">Thêm phiếu thuê</a>
             <h2 class="text-center my-2">DANH SÁCH PHIẾU THUÊ PHÒNG</h2>
             <table class="table table-sm table-striped text-center">
                 <thead class="thead-dark">

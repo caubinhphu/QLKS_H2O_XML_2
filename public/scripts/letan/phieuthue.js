@@ -120,71 +120,47 @@ xhr.onload = function () {
       const control = document.getElementById('control');
       control.innerHTML = `<button class="btn btn-success" id="btnupdate">Cập nhật</button>
       <a class="btn btn-danger" href="/letan/traphong?idphong=${idPhieu}">Trả phòng</a>`;
+
+      const dichVus = [...xml.getElementsByTagName('DICHVU')].map((dv) => {
+        return {
+          id: dv.querySelector('MA_DICHVU').innerHTML,
+          name: dv.querySelector('TEN_DICHVU').innerHTML,
+        };
+      });
+
+      const div = document.createElement('div');
+      div.className = 'text-right';
+      div.innerHTML = `<div id="themdichvu" class="w-75 ml-auto"></div>
+        <button class="btn btn-secondary btn-sm mt-2" id="btnthemdichvu">Thêm dịch vụ</button>`;
+
+      div.querySelector('button').addEventListener('click', function () {
+        const select = document.createElement('select');
+        select.name = 'dichvu';
+        select.className = 'form-control form-control-sm';
+        select.innerHTML = dichVus
+          .map((dv) => `<option value="${dv.id}">${dv.name}</option>`)
+          .join('');
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.value = 1;
+        input.className = 'form-control form-control-sm';
+        const button = document.createElement('button');
+        button.className = 'btn btn-sm btn-danger';
+        button.innerHTML = 'X';
+        button.addEventListener('click', function () {
+          this.parentElement.remove();
+        });
+        const divChild = document.createElement('div');
+        divChild.className = 'd-flex';
+        divChild.appendChild(select);
+        divChild.appendChild(input);
+        divChild.appendChild(button);
+        div.querySelector('div').appendChild(divChild);
+      });
+
+      document.getElementById('dvthue').appendChild(div);
     }
   }
-
-  const phongs = [...xml.getElementsByTagName('PHONG')].map(
-    (p) => p.querySelector('MAPHONG').innerHTML
-  );
-
-  document
-    .getElementById('btnthemphong')
-    .addEventListener('click', function () {
-      const select = document.createElement('select');
-      select.name = 'phong';
-      select.className = 'form-control form-control-sm';
-      select.innerHTML = phongs.map((p) => `<option>${p}</option>`).join('');
-      const input = document.createElement('input');
-      input.type = 'number';
-      input.value = 1;
-      input.className = 'form-control form-control-sm';
-      const button = document.createElement('button');
-      button.className = 'btn btn-sm btn-danger';
-      button.innerHTML = 'X';
-      button.addEventListener('click', function () {
-        this.parentElement.remove();
-      });
-      const div = document.createElement('div');
-      div.className = 'd-flex';
-      div.appendChild(select);
-      div.appendChild(input);
-      div.appendChild(button);
-      document.getElementById('themphong').appendChild(div);
-    });
-
-  const dichVus = [...xml.getElementsByTagName('DICHVU')].map((dv) => {
-    return {
-      id: dv.querySelector('MA_DICHVU').innerHTML,
-      name: dv.querySelector('TEN_DICHVU').innerHTML,
-    };
-  });
-
-  document
-    .getElementById('btnthemdichvu')
-    .addEventListener('click', function () {
-      const select = document.createElement('select');
-      select.name = 'dichvu';
-      select.className = 'form-control form-control-sm';
-      select.innerHTML = dichVus
-        .map((dv) => `<option value="${dv.id}">${dv.name}</option>`)
-        .join('');
-      const input = document.createElement('input');
-      input.type = 'number';
-      input.value = 1;
-      input.className = 'form-control form-control-sm';
-      const button = document.createElement('button');
-      button.className = 'btn btn-sm btn-danger';
-      button.innerHTML = 'X';
-      button.addEventListener('click', function () {
-        this.parentElement.remove();
-      });
-      const div = document.createElement('div');
-      div.className = 'd-flex';
-      div.appendChild(select);
-      div.appendChild(input);
-      div.appendChild(button);
-      document.getElementById('themdichvu').appendChild(div);
-    });
 };
 
 xhr.send(null);
