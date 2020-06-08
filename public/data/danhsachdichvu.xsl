@@ -4,6 +4,7 @@
     <xsl:template match="/">
         <div class="w-50 mx-auto" id="dsdichvu">
             <h3 class="text-center my-2">Danh Sách Dịch Vụ</h3>
+            <a href="/quanly/themdichvu.html" class="btn btn-success mb-2 btn-sm">Thêm dịch vụ</a>
             <table class="table table-sm text-center">
                 <thead class="thead-dark">
                     <tr>

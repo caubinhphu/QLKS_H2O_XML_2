@@ -312,4 +312,31 @@ app.put('/quanly/dichvu', (req, res) => {
   });
 });
 
+app.post('/quanly/phong', (req, res) => {
+  const { id, type, price, status } = req.body;
+
+  fs.readFile('./public/data/QLKS_H2O.xml', 'utf-8', (err, data) => {
+    if (err) res.sendStatus(400);
+    parseString(data, function (error, result) {
+      if (error) res.sendStatus(500);
+
+      result.QLKS_H2O.PHONG.push({
+        MAPHONG: [id],
+        MA_LOAIPHONG: [type],
+        GIAPHONG: [price],
+        MA_TRANGTHAI: [status],
+      });
+
+      const builder = new xml2js.Builder();
+      const xml = builder.buildObject(result);
+
+      fs.writeFile('./public/data/QLKS_H2O.xml', xml, function (err, data) {
+        if (err) res.sendStatus(500);
+      });
+
+      res.json('OK');
+    });
+  });
+});
+
 app.listen(PORT, () => console.log('Server is opened'));
