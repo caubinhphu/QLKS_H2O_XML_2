@@ -35,7 +35,7 @@ document.loginForm.addEventListener('submit', function (e) {
           location.href = '/vattu/index.html';
           break;
         case 'Quản lý':
-          location.href = '/quanly/index.html';
+          location.href = '/quanly/phong.html';
           break;
       }
     } else {

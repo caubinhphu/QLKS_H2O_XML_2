@@ -2,7 +2,7 @@
 <html lang="vi">
 
 <head>
-  <title>H2O</title>
+  <title></title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/styles/bootstrap.min.css" />
@@ -30,7 +30,7 @@
 
   <!-- Nav -->
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="/ketoan/index.html">KẾ TOÁN</a><button class="navbar-toggler" type="button" data-toggle="collapse"
+    <a class="navbar-brand" href="/letan">QUẢN LÝ</a><button class="navbar-toggler" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,16 +38,16 @@
     <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
       <ul class="navbar-nav w-100">
         <li class="nav-item">
-          <a class="nav-link" href="/ketoan">Hóa đơn</a>
+          <a class="nav-link" href="/quanly/phong.html">Phòng</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/ketoan/doanhthungay.html">Doanh thu ngày</a>
+          <a class="nav-link" href="/quanly/dichvu.html">Dịch vụ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/ketoan/doanhthuthang.html">Doanh thu tháng</a>
+          <a class="nav-link" href="/quanly/thongkedichvu.html">Thống kê dịch vụ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/ketoan/doanhthunam.html">Doanh thu năm</a>
+          <a class="nav-link" href="/quanly/thongkehong.html">Thống Kê phòng</a>
         </li>
         <li class="ml-auto">
           <button class="btn btn-secondary" id="logout">Đăng xuất</button>
@@ -58,17 +58,15 @@
 
   <!-- Main container -->
   <div id="main" class="p-3">
-    <h2 class="text-center my-2">DANH SÁCH HÓA ĐƠN</h2>
-    <table class="table table-sm text-center table-bordered table-striped">
-      <thead class="thead-dark">
+    <h2 class="text-center my-2">DANH SÁCH PHÒNG</h2>
+    <table class="table table-sm text-center table-bordered">
+      <thead>
         <tr>
           <th>STT</th>
-          <th>Mã phiếu</th>
-          <th>Ngày đến</th>
-          <th>Ngày đi</th>
-          <th>Tổng tiền phòng</th>
-          <th>Tổng tiền dịch vụ</th>
-          <th>Tổng tiền</th>
+          <th>Mã Phòng</th>
+          <th>Mã Loại Phòng</th>
+          <th>Giá Phòng</th>
+          <th>Mã Trạng Thái</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
@@ -117,10 +115,11 @@
     <div class="container"><small>Copyright &copy; H2O website</small></div>
   </section>
 
+  <script src="/scripts/axios.min.js"></script>
   <script src="/scripts/cookie.js"></script>
   <script src="/scripts/checkAuth.js"></script>
   <script src="/scripts/logout.js"></script>
-  <script src="/scripts/ketoan/index.js"></script>
+  <script src="/scripts/quanly/phong.js"></script>
 </body>
 
 </html>
