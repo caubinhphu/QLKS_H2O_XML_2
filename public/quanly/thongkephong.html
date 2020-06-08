@@ -58,38 +58,18 @@
 
   <!-- Main container -->
   <div id="main" class="p-3">
-    <h3 class="text-center my-2">THÊM PHÒNG</h3>
-    <div class="w-50 mx-auto">
-      <table class="table table-sm table-borderless">
+    <h3 class="text-center">THỐNG KÊ THUÊ PHÒNG</h3>
+    <table class="table table-sm text-center table-bordered w-50 mx-auto">
+      <thead>
         <tr>
-          <th>Mã phòng</th>
-          <td>
-            <input type="text" class="form-control form-control-sm" id="maphong" required>
-          </td>
-        </tr>
-        <tr>
-          <th>Loại phòng</th>
-          <td>
-            <select id="loaiphong" class="form-control form-control-sm"></select>
-          </td>
-        </tr>
-        <tr>
-          <th>Trạng thái phòng</th>
-          <td>
-            <select id="trangthai" class="form-control form-control-sm"></select>
-          </td>
-        </tr>
-        <tr>
+          <th>STT</th>
+          <th>Phòng</th>
           <th>Giá phòng</th>
-          <td>
-            <input type="number" class="form-control form-control-sm text-right" id="giaphong" value="0">
-          </td>
+          <th>Số lần thuê</th>
         </tr>
-      </table>
-      <div class="mt-2 text-right">
-        <button class="btn btn-success" id="btnThem">Thêm</button>
-      </div>
-    </div>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
   </div>
 
   <!-- Footer container -->
@@ -138,7 +118,7 @@
   <script src="/scripts/cookie.js"></script>
   <script src="/scripts/checkAuth.js"></script>
   <script src="/scripts/logout.js"></script>
-  <script src="/scripts/quanly/themphong.js"></script>
+  <script src="/scripts/quanly/thongkephong.js"></script>
 </body>
 
 </html>

@@ -58,31 +58,25 @@
 
   <!-- Main container -->
   <div id="main" class="p-3">
-    <h3 class="text-center my-2">THÊM PHÒNG</h3>
+    <h3 class="text-center my-2">THÊM DỊCH VỤ</h3>
     <div class="w-50 mx-auto">
       <table class="table table-sm table-borderless">
         <tr>
-          <th>Mã phòng</th>
+          <th>Mã dich vụ</th>
           <td>
-            <input type="text" class="form-control form-control-sm" id="maphong" required>
+            <input type="text" class="form-control form-control-sm" id="madichvu" required>
           </td>
         </tr>
         <tr>
-          <th>Loại phòng</th>
+          <th>Tên dich vụ</th>
           <td>
-            <select id="loaiphong" class="form-control form-control-sm"></select>
+            <input type="text" class="form-control form-control-sm" id="tendichvu" required>
           </td>
         </tr>
         <tr>
-          <th>Trạng thái phòng</th>
+          <th>Giá dịch vụ</th>
           <td>
-            <select id="trangthai" class="form-control form-control-sm"></select>
-          </td>
-        </tr>
-        <tr>
-          <th>Giá phòng</th>
-          <td>
-            <input type="number" class="form-control form-control-sm text-right" id="giaphong" value="0">
+            <input type="number" class="form-control form-control-sm text-right" id="giadichvu" value="0">
           </td>
         </tr>
       </table>
@@ -138,7 +132,7 @@
   <script src="/scripts/cookie.js"></script>
   <script src="/scripts/checkAuth.js"></script>
   <script src="/scripts/logout.js"></script>
-  <script src="/scripts/quanly/themphong.js"></script>
+  <script src="/scripts/quanly/themdichvu.js"></script>
 </body>
 
 </html>
