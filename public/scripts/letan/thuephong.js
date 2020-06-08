@@ -117,8 +117,12 @@ xhr.onload = function () {
 
     axios
       .post('/letan/thuephong', data)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        if (res.data === 'OK') {
+          location.href = '/letan/phieuthuephong.html';
+        }
+      })
+      .catch((err) => location.reload());
   });
 };
 

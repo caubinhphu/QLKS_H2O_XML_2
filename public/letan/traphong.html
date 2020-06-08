@@ -47,92 +47,75 @@
   </nav>
 
   <div class="p-3" id="main">
-    <h3 class="text-center">PHIẾU THUÊ PHÒNG</h3>
-    <div class="row">
-      <div class="col-5 mx-auto">
-        <table class="table table-sm table-borderless">
+    <h3 class="text-center">HÓA ĐƠN THANH TOÁN</h3>
+    <div class="w-75 mx-auto">
+      <table class="table table-sm table-borderless w-50">
+        <tr>
+          <th>Họ và tên khách hàng</th>
+          <td id="hoten"></td>
+        </tr>
+        <tr>
+          <th>CMND/PASSPORT</th>
+          <td id="cmnd"></td>
+        </tr>
+        <tr>
+          <th>Quốc tịch</th>
+          <td id="quoctich"></td>
+        </tr>
+        <tr>
+          <th>Điện thoại</th>
+          <td id="dienthoai"></td>
+        </tr>
+      </table>
+  
+      <b>Chi tiết sử dụng phòng</b>
+      <table class="table table-sm text-center table-bordered">
+        <thead class="thead-dark">
           <tr>
-            <th>Họ tên khách</th>
-            <td>
-              <input type="text" class="form-control form-control-sm" id="hoten" required>
-            </td>
+            <th>STT</th>
+            <th>Phòng</th>
+            <th>Số ngày</th>
+            <th>Đơn giá (một đêm)</th>
+            <th>Thành tiền</th>
           </tr>
+        </thead>
+        <tbody id="phongBody"></tbody>
+      </table>
+  
+      <b>Chi tiết sử dụng dịch vụ</b>
+      <table class="table table-sm text-center table-bordered">
+        <thead class="thead-dark">
           <tr>
-            <th>CMND/PassPort</th>
-            <td>
-              <input type="text" class="form-control form-control-sm" id="cmnd" required>
-            </td>
+            <th>STT</th>
+            <th>Dịch vụ</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
           </tr>
-          <tr>
-            <th>Ngày sinh</th>
-            <td>
-              <input type="date" class="form-control form-control-sm" id="ngaysinh" required>
-            </td>
-          </tr>
-          <tr>
-            <th>Giới tính</th>
-            <td>
-              <select id="gioitinh" class="form-control form-control-sm" required>
-                <option value="Nam">Nam</option>
-                <option value="Nữ">Nữ</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <th>Điện thoại</th>
-            <td>
-              <input type="text" class="form-control form-control-sm" id="dienthoai" required>
-            </td>
-          </tr>
-          <tr>
-            <th>Quốc tịch</th>
-            <td>
-              <input type="text" class="form-control form-control-sm" id="quoctich" required>
-            </td>
-          </tr>
-          <tr>
-            <th>Ngày đi</th>
-            <td>
-              <input type="date" class="form-control form-control-sm" id="ngaydi" required>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="col-5 mx-auto">
-        <div>
-          <h5 class="text-center">Phòng thuê</h5>
-          <div class="w-75 mx-auto d-flex justify-content-around">
-            <div>Phòng</div>
-            <div>Số người</div>
-          </div>
-          <div id="thuephong" class="w-75 mx-auto">
-            <div class="d-flex">
-              <select class="form-control form-control-sm" id="firstPhong" required name="phong"></select>
-              <input type="text" class="form-control form-control-sm" value="1" required name="songuoi">
-            </div>
-          </div>
-          <div class="text-right">
-            <button class="btn btn-secondary btn-sm mt-2" id="btnthemphong">Thêm phòng</button>
-          </div>
-        </div>
-        <hr>
-        <div class="mt-2">
-          <h5 class="text-center">Dịch vụ thuê</h5>
-          <div class="w-75 mx-auto d-flex justify-content-around">
-            <div>Dịch vụ</div>
-            <div>Số lượng</div>
-          </div>
-          <div id="thuedichvu" class="w-75 mx-auto"></div>
-          <div class="text-right">
-            <button class="btn btn-secondary btn-sm mt-2" id="btnthemdichvu">Thêm dịch vụ</button>
-          </div>
-        </div>
-      </div>
+        </thead>
+        <tbody id="dichVuBody"></tbody>
+      </table>
+  
+      <table class="table table-sm">
+        <tr>
+          <th>Tổng tiền thanh toán</th>
+          <td id="tien" class="text-right"></td>
+        </tr>
+        <tr>
+          <th>Phí VAT</th>
+          <td class="text-right">10%</td>
+        </tr>
+        <tr>
+          <th>Tông tiền phải trả</th>
+          <td id="tong" class="text-right"></td>
+        </tr>
+      </table>
     </div>
     <div class="text-center">
       <button class="btn btn-success" id="btnOK">Xác nhận</button>
     </div>
   </div>
+
 
   <!-- Footer container -->
   <footer class="footer text-center bg-info py-4">
@@ -181,7 +164,7 @@
   <script src="/scripts/checkAuth.js"></script>
   <script src="/scripts/logout.js"></script>
   <script src="/scripts/formatdate.js"></script>
-  <script src="/scripts/letan/thuephong.js"></script>
+  <script src="/scripts/letan/traphong.js"></script>
 </body>
 
 </html>
